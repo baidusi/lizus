@@ -1,77 +1,9 @@
-<?php
-error_reporting(0);
-header('Content-Type: text/html; charset=UTF-8');
-header("Cache-Control: no-store, no-cache");
-#include 'txprotect.php';
-$target = 'http://666.xiaolirjk.cn/cpa2.html';
-function checkmobile() {
-	$useragent = strtolower($_SERVER['HTTP_USER_AGENT']);
-	$ualist = array('android', 'midp', 'nokia', 'mobile', 'iphone', 'ipod', 'blackberry', 'windows phone');
-	foreach($ualist as $v) {
-		if(strpos($useragent, $v) !== false) {
-			return true;
-		}
-	}
-	if(strpos($_SERVER['HTTP_ACCEPT'], "VND.WAP") !== false || strpos($_SERVER['HTTP_VIA'],"wap") !== false){
-		return true;
-	}
-	return false;
-}
-if(strpos($_SERVER['HTTP_USER_AGENT'], 'QQ/')===false && strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger')===false){
-	echo '<!DOCTYPE html>
-<html>
- <head>
-  <title>防洪 www.99wody.com</title>
-  <script src="https://open.mobile.qq.com/sdk/qqapi.js?_bid=152"></script>
-  <script type="text/javascript"> mqq.ui.openUrl({ self: 2,url: "'.$target.'"}); </script>
- </head>
- <body></body>
-</html>';
-exit;
-}elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger')!==false || strpos($_SERVER['HTTP_USER_AGENT'], 'QQ/')!==false){
-?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" style="font-size: 100px;">
-<head id="Head1"><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>温馨提示</title>
-    <!--不显示成手机号-->
-    <meta name="format-detection" content="telephone=no" />
-    <!--删除默认的苹果工具栏和菜单栏-->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <!--解决UC手机字体变大的问题-->
-    <meta name="wap-font-scale" content="no" />
-    <!--控制状态栏显示样式-->
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-	<link href="http://666.xiaolirjk.cn/666/css/index.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="http://666.xiaolirjk.cn/666/js/jquery.min.js"></script>
-    <script type="text/javascript">
-$(function ($) {
-    setRootFontSize();
-});
-window.onresize = function () {
-    setRootFontSize();
-}
-function setRootFontSize() {
-    $('html').css('font-size', document.body.clientWidth / 13 + 'px');
-}
-    </script>
-</head>
-<body style="background-color: #f5f5f5;">
-    <div id="Pan_WX">
-        <!--微信访问-->
-        <!--<div class="fc_jt">
-            <img src="img/jt.png"></div>
-               <div class="fc_wz">
-                点击屏幕右上角[...]<br />
-                用 浏览器 打开 
-            </div>-->  
-          <div class="fc_tp">
-            <img src="http://666.xiaolirjk.cn/666/img/wx_az.png"></div>
-		</div>
+<html><head><title>正在跳转</title></head>
+
+<body>
+
+<script language='javascript'>document.location = 'http://666.xiaolirjk.cn/xiaoli/666'</script>
+
 </body>
+
 </html>
-<?php
-}else{
-	exit('<script>window.location.href="'.$target.'";</script>');
-}
-?>
